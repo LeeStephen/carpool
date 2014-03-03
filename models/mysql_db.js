@@ -3,13 +3,20 @@
 var mysql = require('mysql');
 
 // TODO this should be in a config file
+// Set up an online test database.
 var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'admin',
-  database: 'carpool_db'
+  host: 'db4free.net',
+  user: 'carpooling',
+  password: 'bestpassword1',
+  database: 'cpstestdb'
 });
 
+//var connection = mysql.createConnection({
+//  host: 'localhost',
+//  user: 'root',
+//  password: 'admin',
+//  database: 'carpool_db'
+//});
 
 module.exports.update = function(table, updateFields, whereFields, done) {
   connection.query('UPDATE ?? SET ? WHERE ?', [table, updateFields, whereFields], function(err, result) {
